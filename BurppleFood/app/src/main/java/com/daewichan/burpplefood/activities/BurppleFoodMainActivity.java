@@ -54,9 +54,6 @@ public class BurppleFoodMainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this, this);
 
-       // ActionBar actionBar = getSupportActionBar();
-       // actionBar.setDisplayShowTitleEnabled(false);
-
         promotionFoodAdapter = new PromotionFoodAdapter();
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);

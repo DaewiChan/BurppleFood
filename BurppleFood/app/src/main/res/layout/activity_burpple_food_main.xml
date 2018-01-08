@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true" >
+
+   <android.support.design.widget.AppBarLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <android.support.design.widget.CollapsingToolbarLayout
+           android:layout_width="match_parent"
+           android:layout_height="256dp"
+           android:fitsSystemWindows="true"
+           app:layout_scrollFlags="scroll|exitUntilCollapsed"
+           app:contentScrim="@color/colorPrimary">
+
+           <android.support.v4.view.ViewPager
+               android:id="@+id/vp_burpple_food"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:fitsSystemWindows="true"
+               android:background="@color/colorAccent"/>
+
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               app:layout_collapseMode="pin">
+
+               <TextView
+                   android:id="@+id/tv_burpple"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="burpple"
+                   android:layout_alignParentTop="true"
+                   android:layout_centerHorizontal="true"
+                   android:textSize="32sp"
+                   android:textColor="#fff"/>
+
+               <EditText
+                   android:id="@+id/et_search"
+                   android:layout_width="match_parent"
+                   android:layout_below="@+id/tv_burpple"
+                   android:layout_height="50dp"
+                   android:background="@drawable/shape"
+                   android:layout_marginTop="8dp"
+                   android:layout_marginLeft="12dp"
+                   android:layout_marginRight="12dp"
+                   android:backgroundTint="#BDBDBD"
+                   android:drawableLeft="@drawable/ic_search"
+                   android:hint="Search Burpple Food"
+                   android:textColorHint="#FFF"/>
+
+           </RelativeLayout>
+
+       </android.support.design.widget.CollapsingToolbarLayout>
+
+   </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tv_feature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FEATURE"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="36dp"
+                android:textSize="24sp"/>
+            <TextView
+                android:id="@+id/tv_promotion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Promotion"
+                android:layout_below="@id/tv_feature"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="32sp"
+                android:textColor="#212121"/>
+
+            <TextView
+                android:id="@+id/see_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_feature"
+                android:layout_toRightOf="@id/tv_promotion"
+                android:layout_alignBaseline="@id/tv_promotion"
+                android:layout_marginLeft="160dp"
+                android:text="See More"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_promotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_promotion"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_latest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LATEST"
+                android:layout_below="@id/rv_promotion"
+                android:layout_marginTop="36dp"
+                android:layout_marginLeft="12dp"
+                android:textSize="24sp"
+                />
+            <TextView
+                android:id="@+id/tv_burpple_guides"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Burpple Guides"
+                android:layout_below="@id/tv_latest"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="32sp"
+                android:textColor="#212121"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_burpple_guides"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_burpple_guides"/>
+
+            <TextView
+                android:id="@+id/tv_latest_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LATEST"
+                android:layout_below="@id/rv_burpple_guides"
+                android:layout_marginTop="36dp"
+                android:layout_marginLeft="12dp"
+                android:textSize="24sp"
+                />
+            <TextView
+                android:id="@+id/tv_news_and_trending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New And Trending"
+                android:layout_below="@id/tv_latest_new"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:textSize="32sp"
+                android:textColor="#212121"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_news_and_trending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_news_and_trending"/>
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

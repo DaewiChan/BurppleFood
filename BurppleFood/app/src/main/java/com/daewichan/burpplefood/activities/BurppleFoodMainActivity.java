@@ -89,20 +89,6 @@ public class BurppleFoodMainActivity extends AppCompatActivity {
         imagesInBurppleFoodAdapter=new ImagesInBurppleFoodAdapter();
 
         vpBurppleFood.setAdapter(imagesInBurppleFoodAdapter);
-
-        setName("MgMg");
     }
 
-    public void getName(){
-
-    }
-
-    public String getUserName(){
-
-        return "";
-    }
-
-    public void setName(String name){
-
-    }
 }

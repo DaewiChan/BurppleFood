@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.daewichan.burpplefood.R;
+import com.daewichan.burpplefood.data.models.vo.PromotionsVO;
 import com.daewichan.burpplefood.viewholder.ItemBurppleFoodViewHolder;
 
 import java.util.List;
@@ -16,10 +17,11 @@ import java.util.List;
  */
 
 public class PromotionFoodAdapter extends RecyclerView.Adapter<ItemBurppleFoodViewHolder> {
+
+    private List<PromotionsVO> mPromotionList = null;
+
     public PromotionFoodAdapter() {
     }
-
-
 
     @Override
     public ItemBurppleFoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -37,11 +39,20 @@ public class PromotionFoodAdapter extends RecyclerView.Adapter<ItemBurppleFoodVi
 
     @Override
     public void onBindViewHolder(ItemBurppleFoodViewHolder holder, int position) {
-
+        holder.setPromotion(mPromotionList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+       if (mPromotionList != null){
+           return mPromotionList.size();
+       }else{
+           return 0;
+       }
+    }
+
+    public void setPromotion(List<PromotionsVO> promotionList){
+        this.mPromotionList=promotionList;
+        notifyDataSetChanged();
     }
 }

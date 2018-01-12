@@ -7,26 +7,29 @@
 
    <android.support.design.widget.AppBarLayout
        android:layout_width="match_parent"
-       android:layout_height="wrap_content">
+       android:layout_height="wrap_content"
+      >
 
        <android.support.design.widget.CollapsingToolbarLayout
            android:layout_width="match_parent"
            android:layout_height="256dp"
            android:fitsSystemWindows="true"
            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-           app:contentScrim="@color/colorPrimary">
+           app:contentScrim="@color/colorPrimary"
+           >
 
            <android.support.v4.view.ViewPager
                android:id="@+id/vp_burpple_food"
                android:layout_width="match_parent"
                android:layout_height="match_parent"
                android:fitsSystemWindows="true"
-               android:background="@color/colorAccent"/>
+               android:foreground="#80000000"/>
 
            <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               app:layout_collapseMode="pin">
+               app:layout_collapseMode="pin"
+               >
 
                <TextView
                    android:id="@+id/tv_burpple"
@@ -124,6 +127,18 @@
                 android:layout_marginTop="8dp"
                 android:textSize="32sp"
                 android:textColor="#212121"/>
+            <TextView
+                android:id="@+id/tv_guide_see_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="See More"
+                android:layout_below="@id/tv_latest_new"
+                android:layout_toRightOf="@id/tv_burpple_guides"
+                android:layout_alignBaseline="@id/tv_burpple_guides"
+                android:layout_alignLeft="@id/see_more"
+                android:textSize="16sp"
+                android:textColor="@color/colorAccent"/>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_burpple_guides"
                 android:layout_width="match_parent"
@@ -150,11 +165,168 @@
                 android:layout_marginLeft="16dp"
                 android:textSize="32sp"
                 android:textColor="#212121"/>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_news_and_trending"
+
+            <LinearLayout
+                android:id="@+id/ll_main_newly_and_trending"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_news_and_trending"/>
+                android:orientation="horizontal"
+                android:layout_below="@id/tv_news_and_trending"
+                android:weightSum="2">
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_ll_newly_opened"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardElevation="4dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll_news_and_trending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:id="@+id/tv_newly_opened"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Newly Opened"
+                            android:layout_margin="16dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorAccent"/>
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_newly_opened"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            />
+                        <View
+                            android:id="@+id/v_newly_opened"
+                            android:layout_width="wrap_content"
+                            android:layout_height="2dp"
+                            android:background="#F5F5F5"
+                            />
+                        <TextView
+                            android:id="@+id/tv_newly_exploer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EXPLORE"
+                            android:textSize="12sp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="#212121"/>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_ll_trending_venues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardElevation="4dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:id="@+id/ll_trending_venues"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:id="@+id/tv_trending_venues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Trending Venues"
+                            android:layout_margin="16dp"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorAccent"/>
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rv_trending_venues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            />
+                        <View
+                            android:id="@+id/v_trending_venues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="2dp"
+                            android:background="#F5F5F5"
+                            />
+                        <TextView
+                            android:id="@+id/tv_trending_venues_explore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="EXPLORE"
+                            android:textSize="12sp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="8dp"
+                            android:textColor="#212121"/>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/v_explore_neighbour"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#F5F5F5"
+                android:layout_below="@id/ll_main_newly_and_trending"
+                android:layout_marginTop="32dp"/>
+
+            <TextView
+                android:id="@+id/tv_explore_neighbour"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Explore Neighbour"
+                android:layout_below="@id/v_explore_neighbour"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="12dp"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:drawableLeft="@drawable/ic_location_on"
+               />
+
+
+            <View
+                android:id="@+id/v_explore_categories"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#F5F5F5"
+                android:layout_below="@id/tv_explore_neighbour"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_explore_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Explore Categories"
+                android:layout_below="@id/v_explore_categories"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="12dp"
+                android:textSize="16sp"
+                android:textColor="#212121"
+                android:drawableLeft="@drawable/ic_restaurant"/>
+
+
+            <View
+                android:id="@+id/v_close_explore_neighbour"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#F5F5F5"
+                android:layout_below="@id/tv_explore_categories"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
+
         </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>

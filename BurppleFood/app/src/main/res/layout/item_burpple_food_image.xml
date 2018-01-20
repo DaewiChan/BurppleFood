@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.daewichan.burpplefood.viewitems.ImageInBurppleFoodViewItem
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80000000">
+       >
 
         <ImageView
             android:id="@+id/iv_title_feature"
@@ -15,44 +17,53 @@
             android:scaleType="centerCrop"
             android:src="@drawable/burpple_exclusive"
             android:fitsSystemWindows="true"
-            android:foreground= "#80000000"
             />
 
-        <TextView
-            android:id="@+id/tv_title_feature"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FEATURES"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
-            android:padding="4dp"
-            android:textSize="12sp"
-            android:textColor="#E64A19"
-            android:background="@drawable/communityshape"/>
+            android:gravity="bottom|center"
+            android:paddingBottom="30dp"
+            android:orientation="vertical"
+            android:background="#80000000">
 
-        <TextView
-            android:id="@+id/tv_subtitle_tasty_walk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A Tasty Walk In A Park"
-            android:layout_below="@id/tv_title_feature"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:textSize="32sp"
-            android:textColor="#FFF"/>
+            <TextView
+                android:id="@+id/tv_title_feature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FEATURES"
+                android:layout_marginTop="24dp"
+                android:padding="4dp"
+                android:textSize="12sp"
+                style="@style/white_text_black_border"
+                android:background="@drawable/communityshape"/>
 
-        <TextView
-            android:id="@+id/tv_savour_puts"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Savourworld puts 20 restaurants together on the science park map. "
-            android:layout_below="@id/tv_subtitle_tasty_walk"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:textSize="16sp"
-            android:textColor="#FFF"/>
+            <TextView
+                android:id="@+id/tv_subtitle_tasty_walk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A Tasty Walk In A Park"
+                android:layout_marginTop="8dp"
+                android:textSize="32sp"
+                style="@style/white_text_black_border"
+                android:singleLine="true"
+                android:maxLines="1"/>
+
+            <TextView
+                android:id="@+id/tv_feature_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Savourworld puts 20 restaurants together on the science park map. "
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                style="@style/white_text_black_border"/>
+
+
+        </LinearLayout>
+
+
 
 
 

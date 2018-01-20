@@ -8,7 +8,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.daewichan.burpplefood.R;
+import com.daewichan.burpplefood.data.models.vo.FeaturesVO;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +28,9 @@ public class ImageInBurppleFoodViewItem extends FrameLayout {
     TextView tvTitleFeature;
     @BindView(R.id.tv_subtitle_tasty_walk)
     TextView tvSubtitleTastyWalk;
+    @BindView(R.id.tv_feature_sub)
+    TextView tvFeatureSub;
+
 
     public ImageInBurppleFoodViewItem(@NonNull Context context) {
         super(context);
@@ -37,4 +44,19 @@ public class ImageInBurppleFoodViewItem extends FrameLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        ButterKnife.bind(this,this);
+    }
+
+    public void setData(FeaturesVO features){
+        Glide.with(ivTitleFeature.getContext())
+                .load(features.getBurppleFeaturedImages())
+                .into(ivTitleFeature);
+
+        tvTitleFeature.setText(features.getBurppleFeatureTitle());
+        tvSubtitleTastyWalk.setText(features.getBurppleFeatureDesc());
+        tvFeatureSub.setText(features.getBurppleFeatureDesc());
+    }
 }

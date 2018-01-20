@@ -9,14 +9,16 @@ import android.util.Log;
 
 import com.daewichan.burpplefood.MMBurppleFoodApp;
 import com.daewichan.burpplefood.R;
-import com.daewichan.burpplefood.adapters.BurppleGuidesFoodAdapter;
+import com.daewichan.burpplefood.adapters.GuidesAdapter;
 import com.daewichan.burpplefood.adapters.ImagesInBurppleFoodAdapter;
 import com.daewichan.burpplefood.adapters.NewlyOpenedAdapter;
 import com.daewichan.burpplefood.adapters.PromotionFoodAdapter;
 import com.daewichan.burpplefood.adapters.TrendingVenuesAdapter;
 import com.daewichan.burpplefood.data.models.BurppleFoodMdel;
+import com.daewichan.burpplefood.data.models.GuideModel;
 import com.daewichan.burpplefood.data.models.PromotionModel;
 import com.daewichan.burpplefood.events.LoadedBurppleFoodEvent;
+import com.daewichan.burpplefood.events.LoadedGuideEvent;
 import com.daewichan.burpplefood.events.LoadedPromotionEvent;
 
 import org.greenrobot.eventbus.EventBus;
@@ -45,7 +47,7 @@ public class BurppleFoodMainActivity extends AppCompatActivity {
 
     private PromotionFoodAdapter promotionFoodAdapter;
 
-    private BurppleGuidesFoodAdapter burppleGuidesFoodAdapter;
+    private GuidesAdapter guidesAdapter;
 
     private ImagesInBurppleFoodAdapter imagesInBurppleFoodAdapter;
 
@@ -67,10 +69,10 @@ public class BurppleFoodMainActivity extends AppCompatActivity {
         rvPromottion.setAdapter(promotionFoodAdapter);
 
 
-        burppleGuidesFoodAdapter=new BurppleGuidesFoodAdapter();
+        guidesAdapter=new GuidesAdapter();
         LinearLayoutManager linearLayoutManager1=new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.HORIZONTAL,false);
         rvBurppleGuides.setLayoutManager(linearLayoutManager1);
-        rvBurppleGuides.setAdapter(burppleGuidesFoodAdapter);
+        rvBurppleGuides.setAdapter(guidesAdapter);
 
 
         imagesInBurppleFoodAdapter=new ImagesInBurppleFoodAdapter();
@@ -89,6 +91,7 @@ public class BurppleFoodMainActivity extends AppCompatActivity {
 
         BurppleFoodMdel.getsObjectInstance().loadBurppleFood();
         PromotionModel.getsObjectInstance().loadPromotion();
+        GuideModel.getsObjectInstance().loadGuides();
     }
 
     @Override
@@ -111,8 +114,19 @@ public class BurppleFoodMainActivity extends AppCompatActivity {
 
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onFeaturesLoaded(LoadedPromotionEvent event){
+    public void onPromotionLoaded(LoadedPromotionEvent event){
         Log.d(MMBurppleFoodApp.LOG_TAG,"onFeaturesLoaded:"+event.getPromotionList().size());
         promotionFoodAdapter.setPromotion(event.getPromotionList());
     }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onGuidedLoaded(LoadedGuideEvent event){
+        Log.d("guide_response","onGuideLoaded:"+event.getGuidesList().size());
+        guidesAdapter.setGuides(event.getGuidesList());
+    }
+
+
 }
+
+

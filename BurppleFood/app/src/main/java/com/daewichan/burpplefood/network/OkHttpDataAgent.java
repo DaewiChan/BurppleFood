@@ -85,6 +85,8 @@ public class OkHttpDataAgent implements BurppleFoodDataAgent {
         protected void onPostExecute(String response) {
             super.onPostExecute(response);
 
+            Log.e("resp_data",response);
+
             Gson gson=new Gson();
             GetFeaturesResponse getFeaturesResponse=gson.fromJson(response,GetFeaturesResponse.class);
 

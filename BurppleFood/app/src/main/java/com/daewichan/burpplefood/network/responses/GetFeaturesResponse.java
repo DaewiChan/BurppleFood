@@ -11,13 +11,12 @@ import java.util.List;
 
 public class GetFeaturesResponse {
 
-
     private int code;
     private String message;
     private String  apiVersion;
     private String page;
 
-    @SerializedName( "featured")
+    @SerializedName("featured")
     private List<FeaturesVO> mmFeature;
 
 

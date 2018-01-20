@@ -52,16 +52,10 @@ public class ImagesInBurppleFoodAdapter extends PagerAdapter {
         LayoutInflater layoutInflater=LayoutInflater.from(context);
         ImageInBurppleFoodViewItem view=(ImageInBurppleFoodViewItem)layoutInflater.inflate(R.layout.item_burpple_food_image,container,false);
 
-        ImageView ivTitleFeature= view.findViewById(R.id.iv_title_feature);
-
-        Glide.with(context)
-                .load(mFeatureList.get(position).getBurppleFeaturedImages())
-                .into(ivTitleFeature);
+        view.setData(mFeatureList.get(position));
 
         container.addView(view);
         return view;
-
-
     }
 
     @Override

@@ -24,18 +24,23 @@ public class ItemBurppleFoodViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.tv_promotion_title)
     TextView tvPromotionTitle;
 
+    @BindView(R.id.tv_promotion_term)
+    TextView tvPromotionTerm;
+
+    @BindView(R.id.tv_promotion_shop)
+    TextView tvPromotionShop;
+
     public ItemBurppleFoodViewHolder(View itemView) {
         super(itemView);
-        ButterKnife.bind(this,itemView);
+        ButterKnife.bind(this, itemView);
     }
 
     public void setPromotion(PromotionsVO promotion) {
         tvPromotionTitle.setText(promotion.getPromotionTitle());
 
-
-//        Glide.with(ivItemPromotion.getContext())
-//                .load(promotion.getPromotionImage())
-//                .into(ivItemPromotion);
+        //        Glide.with(ivItemPromotion.getContext())
+        //        .load(promotion.getPromotionImage())
+        //        .into(ivItemPromotion);
 
 
         if (promotion.getPromotionImage() != null) {
@@ -43,7 +48,7 @@ public class ItemBurppleFoodViewHolder extends RecyclerView.ViewHolder {
             Glide.with(ivItemPromotion.getContext())
                     .load(promotion.getPromotionImage())
                     .into(ivItemPromotion);
-        }else {
+        } else {
             ivItemPromotion.setVisibility(View.GONE);
         }
     }
